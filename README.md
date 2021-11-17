@@ -59,3 +59,4 @@ Run section `3.1.1 Calc and plot deviation from calibration samples` in the scri
 * Rename background folder in script
 * Rename columns in output files
 * Add more output explanations
+* Remove hardcodes REs
