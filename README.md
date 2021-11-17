@@ -16,6 +16,7 @@ Tested with R versions v3.4.3 and v3.6.3. Needs packages detailed in `restrictio
 9. Put bam and bai files into `<Example>/data/bam`. Name files according to rules below.
 10. Start R and set working directory to `<Example>`
 11. `source("../RE_analysis.R")` or run `RE_analysis.R` step by step in RStudio from within `<Example>`
+12. Find desired output files and plots (see section below)
   
 ## Sample naming rules
 
@@ -30,6 +31,14 @@ Bam files within `data/bam` need to follow these naming conventions:
   * The sites of the ignored RE (and their neighbourhoods) will still be excluded when calculating the background
   * The sites of the ignored RE might exclude sites of the "main" enzyme when they are close to each other
 * For calibration samples to be used for fitting the uncut correction factor, add the cut percentage with `X_pct_cut` as in this example: `<Strain>_AluI_10_pct_cut.bam`
+
+## Analysis output
+
+* The script creates a folder structure beginning with the folder `analysis_results` which contains different subfolders for each type of plot and result files.
+* Depending on the parameters chosen in the script the main results path is `analysis_results/window_limit_times_1_max_length_500/close_distances_200_300/background_Michael` (in the following called `MAIN`) with plot folders for certain intermediate results along the way.
+* Genomic mean accessibilities are saved in `MAIN/acc_site_means_simple.txt` with all_mean = cut-all cut results, cut_uncut_all_3 = uncorrected cut-uncut result, cut_uncut_4 = corrected cut-uncut result
+* Histograms of site accessibilities are saved in `MAIN/accessibility_histograms/` for plus/minus strand and starting/ending fragments as well as combined results (last column) with all_mean = cut-all cut results, cut_uncut_all_3 = uncorrected cut-uncut result, cut_uncut_4 = corrected cut-uncut result
+* Individual site results are saved in an R dataframe in `MAIN/occs_df_list.RData` with columns chr, enzyme, pos, eff_coverage, eff_cuts, occ_X_1 (= cut-all cut), occ_cut_uncut_2 (= uncorrected cut-uncut) and occ_cut_uncut_4 (=corrected cut-uncut)
       
 ## How to use other REs
 
@@ -47,3 +56,6 @@ Run section `3.1.1 Calc and plot deviation from calibration samples` in the scri
   
 * Upload reference genome in reference_genome/ScerAndSpomWithMT.fsa
 * Upload code files: restriction_enzyme/RE_Rprofile.R, RE_info.txt and all others
+* Rename background folder in script
+* Rename columns in output files
+* Add more output explanations
