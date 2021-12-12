@@ -1,5 +1,9 @@
 # ORE-seq Analysis Script and Functions
 
+## For our Chapter in Methods in Molecular Biology: Chromatin Accessibility
+
+Link to follow...
+
 ## Requirements
 
 Tested with R versions v3.4.3 and v3.6.3. Needs packages detailed in `restriction_enzyme/RE_Rprofile.R`
